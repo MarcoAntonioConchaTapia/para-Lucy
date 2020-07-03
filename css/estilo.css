@@ -1,0 +1,93 @@
+/*Selector Universal
+font-family: 'Lobster', cursive;
+font-family: 'Piedra', cursive;
+font-family: 'Yellowtail', cursive;
+
+
+*/
+*{margin: 0; padding: 0;}
+
+body{
+	font: 12px Monaco, Monospace;
+	background-color: #109FCA;
+}
+
+#tipo1
+{
+	font-family: 'Lobster', cursive;
+	font-size: 2em;
+}
+
+#tipo2
+{
+	font-family: 'Piedra', cursive;
+	font-size: 2em;
+}
+
+#tipo3
+{
+	font-family: 'Yellowtail', cursive;
+	font-size: 2em;
+}
+
+#tarjeta
+{
+	width: 30%;
+	height: auto;
+	min-height: 370px;
+	display: none;
+	margin: 80px auto;
+	background: #fff;
+	padding: 20px 5%;
+	border: 10px solid #ddd;
+	border-radius: 25px;
+	-moz-border-radius: 25px;
+	-webkit-border-radius: 25px;
+}
+
+
+
+
+
+#contenido{
+	width: 60%;
+	height: auto;
+	display: block;
+	margin: 80px auto;
+	background: #fff;
+	padding: 20px 5%;
+	border: 10px solid #ddd;
+	border-radius: 25px;
+	-moz-border-radius: 25px;
+	-webkit-border-radius: 25px;
+}
+
+h1{
+	font-size: 25px;
+	padding: 0 0 10px;
+	color: #1a82f7;
+
+}
+
+#marco{
+	font-size: 25px;
+	padding: 0 0 10px;
+	color: #1a82f7;
+	border-bottom: 1px solid #ddd;
+}
+
+
+
+
+h2{
+	font-size: 20px;
+	padding: 0 0 10px;
+	color: #21ADD8;
+
+}
+
+
+.linea{
+	width: 100%;
+	color: blue;
+}

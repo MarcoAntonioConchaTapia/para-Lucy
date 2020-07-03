@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Tarjeta Dinámica con JS</title>
+	<link rel="stylesheet" href="css/estilo.css">
+	<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Piedra&family=Yellowtail&display=swap" rel="stylesheet">
+
+	<script>
+		function cambiarTamanoTexto(){
+			var tam=document.getElementById('tamanoTxt').value;
+			document.getElementById("ejemploTexto").style.fontSize=tam+"em";
+		}
+
+		function generarTarjeta(){
+
+			document.getElementById("tarjeta").style.display="block";
+
+
+			//revisar cual fondo se sellecionó
+
+			var fondo;
+			if (document.getElementById("tipoImg1").checked)
+				fondo=document.getElementById('tipoImg1').value;
+			else if (document.getElementById("tipoImg2").checked)
+				fondo=document.getElementById('tipoImg2').value;
+			else 
+				fondo=document.getElementById('tipoImg3').value;
+
+	
+	
+			var musicaTxt;
+            if (document.getElementById("audio1").checked)
+               musicaTxt=document.getElementById("audio1").value;
+            else if(document.getElementById("audio2").checked)
+                musicaTxt=document.getElementById("audio2").value;
+            else 
+            musicaTxt=document.getElementById("audio3").value;
+            //llamamos a la canción seleccionada
+            document.getElementById("disco").src=musicaTxt;
+
+
+			//agregamos el fondo a la tarjeta.
+			document.getElementById("tarjeta").style.backgroundImage= "url('"+fondo+"')";
+			document.getElementById("tarjeta").style.backgroundRepeat= "no-repeat";
+
+
+			//insertar textos
+			var miTitulo = document.getElementById("tituloTxt").value;
+			document.getElementById("titulo").innerHTML= miTitulo;
+
+
+			//cambiar color de texto.
+
+			var c = document.getElementById("colorTxt").value;
+			document.getElementById("titulo").style.color=c;
+
+
+			//cambiar tamaño de texto.
+			var tam= document.getElementById("tamanoTxt").value;
+			document.getElementById("titulo").style.fontSize=tam+"em";
+
+			//Validar cual es la tipografia que se selecciona
+			var tipos;
+			if (document.getElementById("tipoTxt1").checked) 
+				tipos=document.getElementById("tipoTxt1").value;
+			else if (document.getElementById("tipoTxt2").checked) 
+				tipos=document.getElementById("tipoTxt2").value;
+			else tipos=document.getElementById("tipoTxt3").value;
+			//asigar tipografía a lo que yo seleccione
+			document.getElementById("titulo").style.fontFamily=tipos;
+
+			//insertar descripción
+			var miDes = document.getElementById("descripconTxt").value;
+			document.getElementById("descripcion").innerHTML= miDes;
+
+			//ocultar configuración.
+			document.getElementById("contenido").style.display="none";
+
+			//cambiar fondo
+
+			var cf = document.getElementById("fondocolor").value;
+			document.getElementById("colorFondo").style.backgroundColor=cf;
+
+			//insertamos el remitente 
+			var miremi = document.getElementById("remitente1").value;
+			document.getElementById("remitente").innerHTML= miremi;
+
+
+			//insertamos la fecha
+
+			var dia = document.getElementById("fecha").value;
+			document.getElementById("hora").innerHTML=dia;
+
+		}
+	</script>
+</head>
+
+<body id="colorFondo">
+	<article id="contenido">
+		<h1 id="marco">Crea tu tarjeta personalizada :D.</h1>
+
+		<br><br>
+		<h2>Elige un tema</h2>
+
+
+
+
+
+			<label>San valentin</label>
+			<input type="radio" name="temaF" id="tema1" checked >
+			<br><br>
+			<label>Feliz Cumpleaños</label>
+			<input type="radio" name="temaF" id="tema1" checked >
+			<br><br>
+			<label>Graduación</label>
+			<input type="radio" name="temaF" id="tema1" checked >
+			<br><br>
+		<h2>Elige una imagen</h2>
+
+
+
+
+
+			<!--Para agregar la imagen que será el fonfo de la tarjeta-->
+			<input type="radio" name="tipoImg" id="tipoImg1" checked value="img/amor.jpg">
+			<img src="img/amor.jpg" height="150" width="150">
+			<!--Para agregar la imagen que será el fonfo de la tarjeta-->
+			<input type="radio" name="tipoImg" id="tipoImg2" value="img/graduacion.jpg">
+			<img src="img/graduacion.jpg" height="150" width="150">
+			<!--Para agregar la imagen que será el fonfo de la tarjeta-->
+			<input type="radio" name="tipoImg" id="tipoImg3" checked value="img/hb.png">
+			<img src="img/hb.png" height="150" width="150">
+			<br><br>
+
+		<hr class="linea">
+		<br>			
+
+		<h2>Agrega un titulo</h2>
+
+
+
+
+
+			<input type="text" id="tituloTxt">
+			<br><br>
+		
+		<hr class="linea">
+
+		<br>
+		<h2>Agrega una descripción</h2>
+
+
+
+
+
+
+
+			<textarea id="descripconTxt" cols="30" rows="5"></textarea>
+			<br><br>
+
+		<hr class="linea">
+		<br>
+		<h2>¿Qué formato de texto quieres?</h2>
+
+
+
+
+		<label for="colorTxt">Color:</label>
+		<input type="color" id="colorTxt">
+
+		<br><br>
+
+		<label for="tamanoTxt">Tamaño de letra</label>
+		<input type="range" id="tamanoTxt" min="1" max="10" onchange="cambiarTamanoTexto()">
+		<label id="ejemploTexto">Prueba</label>
+		<br><br>
+		<hr class="linea">
+
+		<br><br>
+
+		<label> Tipodragía</label><br>
+		<input type="radio" name="tipoTxt" id="tipoTxt1" checked value="Lobster">
+		<label id="tipo1">Lobster</label>
+
+		<input type="radio" name="tipoTxt" id="tipoTxt2" value="Piedra">
+		<label id="tipo2">Piedra</label>
+
+		<input type="radio" name="tipoTxt" id="tipoTxt3" value="Yellowtail">
+		<label id="tipo3">Yellowtail</label>
+
+		<br>
+		<br>
+
+		<hr class="linea">
+		<br>
+		<br>		
+
+
+
+		<h2>Agrega musíca</h2>
+
+
+
+
+		<input type="radio" name="musicaTxt" id="audio1" checked value="musica/cumpleanos.mp3">
+		<audio src="musica/cumpleanos.mp3" controls autoplay  id="disco"> <p>Tu navegador no implementa el elemento audio</p> </audio> <br>
+		<label>Canción: Panda- Feliz Cumpleaños</label><br><br>
+
+		<input type="radio" name="musicaTxt" id="audio2" value="musica/amor.mp3">
+		<audio src="musica/amor.mp3" controls autoplay  id="disco"> <p>Tu navegador no implementa el elemento audio</p> </audio> <br>
+		<label>Canción: Werevertumorro- Déjame ser</label><br><br>
+
+		<input type="radio" name="musicaTxt" id="audio3" value="musica/graduacion.mp3">
+		<audio src="musica/graduacion.mp3" controls autoplay  id="disco"> <p>Tu navegador no implementa el elemento audio</p> </audio> <br>
+		<label>Canción: Snoop Dogg feat Wiz Khalifa- Young, Wild and Free</label><br><br>
+		<hr class="linea">
+
+		<br><br>
+	
+
+		<h2>¿Quién escribe la tarjeta?</h2>
+		<input type="text" id="remitente1">
+		<br><br>
+		
+		<hr class="linea">
+		<br><br>
+		<h2>Agrega el color de fondo</h2><br>
+		<input type="color" id="fondocolor">
+		<br><br>
+
+
+		<hr class="linea">
+		<br><br>
+		<h2>Agrega la fecha</h2><br>
+		<input type="date" id="fecha">
+		<br><br>
+		<hr class="linea">
+		<br>
+		<br>
+		<a><img src="img/crear.gif" width="100" height="100" onclick="generarTarjeta()" > !Dale click al gatito para crear tu tarjeta¡ :D</a>
+
+
+		<br>
+		<br>		
+		<h2>Música para que te relajes :3</h2>
+		<audio src="musica/principal.mp3" controls autoplay loop> <p>Tu navegador no implementa el elemento audio</p> </audio> <br>
+		<label>Esta canción no aparecera en la tarjeta</label>
+		<br>
+		<label>Canción: Rude- Eternal Youth</label>
+		<br>
+		<br>
+		<hr class="linea">
+	</article>
+
+	<article id="tarjeta">
+		<h1 id="titulo"></h1>
+		<h2 id="subtitulo"></h2>
+		<h3 id="descripcion"></h3>
+		<h3 id="remitente"></h3>
+		<h3 id="hora"></h3>
+	</article>
+
+
+
+</body>
+</html>
